@@ -9,7 +9,6 @@
     <meta name="HandheldFriendly" content="True"/>
     <meta name="robots" content="noindex,nofollow"/>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!--suppress CssUnresolvedCustomProperty -->
     <style>
@@ -119,25 +118,37 @@
 </section>
 <script type="text/javascript">
 
-    
+    // INIT TELEGRAM BUTTON
     Telegram.WebApp.ready();
+    // TELEGRAM BUTTON
     Telegram.WebApp.MainButton.setText('TELEGRAM BUTTON').show().onClick(function () {
+
         f1 = document.getElementById("Field1").value;
         f2 = document.getElementById("Field2").value;
-        console.log(f1);
-        console.log(f2);
-        Telegram.WebApp.sendData("TELEGRAM BUTTON");
+
+        const data = {field1: f1, field2: f2};
+
+        data.btn = "TELEGRAM";
+        console.log(data);
+
+        Telegram.WebApp.sendData(JSON.stringify(data));
         Telegram.WebApp.close();
     });
 
+    // INIT HTML BUTTON
     document.getElementById("setBtn").onclick = function() {btnFunc()};
-
+    // HTML BUTTON
     function btnFunc() {
+
         f1 = document.getElementById("Field1").value;
         f2 = document.getElementById("Field2").value;
-        console.log(f1);
-        console.log(f2);
-        Telegram.WebApp.sendData("HTML BUTTON");
+
+        const data = {field1: f1, field2: f2};
+
+        data.btn = "HTML";
+        console.log(data);
+
+        Telegram.WebApp.sendData(JSON.stringify(data));
         Telegram.WebApp.close();
     }
 
