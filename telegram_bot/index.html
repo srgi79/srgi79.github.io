@@ -122,6 +122,13 @@
     // INIT TELEGRAM WEB APP
     Telegram.WebApp.ready();
 
+    // INIT DATA
+    {
+        var data = {};
+    }
+
+
+    // FUNCTION - SEND DATA
     function sendData(b) {
         if (b = true) {
             Telegram.WebApp.sendData(JSON.stringify(data));
@@ -129,8 +136,7 @@
         } else {
             Telegram.WebApp.sendData("Canceled");
             Telegram.WebApp.close();
-}
-
+        }
     }
 
     // TELEGRAM BUTTON
@@ -139,7 +145,7 @@
         f1 = document.getElementById("Field1").value;
         f2 = document.getElementById("Field2").value;
 
-        const data = {field1: f1, field2: f2};
+        data = {field1: f1, field2: f2};
 
         data.btn = "TELEGRAM";
         console.log(data);
@@ -155,7 +161,7 @@
         f1 = document.getElementById("Field1").value;
         f2 = document.getElementById("Field2").value;
 
-        const data = {field1: f1, field2: f2};
+        data = {field1: f1, field2: f2};
 
         data.btn = "HTML";
         console.log(data);
