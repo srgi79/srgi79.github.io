@@ -119,11 +119,11 @@
 </section>
 <script type="text/javascript">
 
-    f1 = document.getElementById("Field1").value;
-    f2 = document.getElementById("Field1").value;
     
     Telegram.WebApp.ready();
     Telegram.WebApp.MainButton.setText('TELEGRAM BUTTON').show().onClick(function () {
+        f1 = document.getElementById("Field1").value;
+        f2 = document.getElementById("Field2").value;
         console.log(f1);
         console.log(f2);
         Telegram.WebApp.sendData("TELEGRAM BUTTON");
@@ -133,6 +133,8 @@
     document.getElementById("setBtn").onclick = function() {btnFunc()};
 
     function btnFunc() {
+        f1 = document.getElementById("Field1").value;
+        f2 = document.getElementById("Field2").value;
         console.log(f1);
         console.log(f2);
         Telegram.WebApp.sendData("HTML BUTTON");
