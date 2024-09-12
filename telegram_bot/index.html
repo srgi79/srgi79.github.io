@@ -113,8 +113,7 @@
         <label for="input-text"></label>
         <input id="input-text" type="text" placeholder="Text">
 
-        <button type="button" onclick="setMyUserID();">Set my ID</button>
-        <button type="button" onclick="sendMessage();">Send Message</button>
+        <button type="button" id=setBtn>Set</button>
     </form>
 
     <hr>
@@ -122,77 +121,17 @@
     <h4>Output</h4>
     <pre><code id="div-code-output"></code></pre>
 </section>
-
-
-<!--suppress JSUnresolvedFunction, JSUnresolvedVariable, JSUnusedLocalSymbols -->
-<script>
+<script type="text/javascript">
+    
     Telegram.WebApp.ready();
+    Telegram.WebApp.MainButton.setText('Choose Color').show();
+    
+    document.getElementById("setBtn").onclick = function() {btnFunc()};
 
-    let initData = Telegram.WebApp.initData || '';
-    let initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
-
-    function checkMyData() {
-        $('button').prop('disabled', true);
-
-        $.ajax('/checkUserData', {
-            method: 'POST',
-            data: {
-                _auth: initData,
-            },
-            dataType: 'json',
-            success: function (result) {
-                $('button').prop('disabled', false);
-
-                if (result.ok) {
-                    $('#div-code-output').text('Your Hash is valid. So all is OK 😉').removeClass('err').addClass('ok').show();
-                } else {
-                    $('#div-code-output').text('😥 Hash is not ok: ' + result.error).removeClass('ok').addClass('err').show();
-                }
-            },
-            error: function (xhr) {
-                $('button').prop('disabled', false);
-                $('#div-code-output').text('Server error').removeClass('ok').addClass('err').show();
-            }
-        });
-    }
-
-    function sendMessage() {
-        $('button').prop('disabled', true);
-        let user_id = $('#input-user-id').prop('value');
-        let text = $('#input-text').prop('value');
-
-        $.ajax('/sendMessage', {
-            method: 'POST',
-            data: {
-                _auth: initData,
-                user_id: user_id,
-                text: text
-            },
-            dataType: 'json',
-            success: function (result) {
-                $('button').prop('disabled', false);
-
-                if (result.ok) {
-                    $('#div-code-output').text('Sent message to ' + user_id).removeClass('err').addClass('ok').show();
-                } else {
-                    $('#div-code-output').text(result.error).removeClass('ok').addClass('err').show();
-                }
-            },
-            error: function (xhr) {
-                $('button').prop('disabled', false);
-                $('#div-code-output').text('Server error').removeClass('ok').addClass('err').show();
-            }
-        });
-    }
-
-    function setMyUserID() {
-        $('#input-user-id').prop('value', initDataUnsafe.user.id);
-        $('#div-code-output').text('Your ID has been pasted').removeClass('err').addClass('ok').show();
-    }
-
-    Telegram.WebApp.MainButton.setText('CLOSE').show().onClick(function () {
+    function btnFunc() {
+        Telegram.WebApp.sendData("HELLOOOOOO");
         Telegram.WebApp.close();
-    });
+    }
 
 </script>
 </body>
