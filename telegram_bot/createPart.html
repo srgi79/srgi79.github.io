@@ -117,6 +117,7 @@
     </form>
 
 </section>
+
 <script type="text/javascript">
 
     // INIT TELEGRAM WEB APP
@@ -150,7 +151,9 @@
         data.btn = "TELEGRAM";
         console.log(data);
 
-        Telegram.WebApp.showConfirm("[TELEGRAM] Are U sure?", sendData(b))
+        Telegram.WebApp.showConfirm("[TELEGRAM] Are U sure?", (confirm) => {
+            sendData(confirm);
+        });
     });
 
     // INIT HTML BUTTON
@@ -166,7 +169,9 @@
         data.btn = "HTML";
         console.log(data);
 
-        Telegram.WebApp.showConfirm("[HTML] Are U sure?", sendData(b))
+        Telegram.WebApp.showConfirm("[HTML] Are U sure?", (confirm) => {
+            sendData(confirm);
+        });
     }
 
 </script>
