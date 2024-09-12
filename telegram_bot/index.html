@@ -106,11 +106,11 @@
 
     <h3>Send Message Function</h3>
     <form>
-        <label for="input-user-id"></label>
-        <input id="input-user-id" type="text" placeholder="UserID">
+        <label for="Field1"></label>
+        <input id="Field1" type="text" placeholder="Field1">
 
-        <label for="input-text"></label>
-        <input id="input-text" type="text" placeholder="Text">
+        <label for="Field2"></label>
+        <input id="Field2" type="text" placeholder="Field2">
 
         <button type="button" id=setBtn>Set</button>
     </form>
@@ -128,6 +128,10 @@
     document.getElementById("setBtn").onclick = function() {btnFunc()};
 
     function btnFunc() {
+        f1 = document.getElementById("Field1").value;
+        f2 = document.getElementById("Field1").value;
+        console.log(f1);
+        console.log(f2);
         Telegram.WebApp.sendData("HELLOOOOOO");
         Telegram.WebApp.close();
     }
