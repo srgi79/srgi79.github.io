@@ -118,8 +118,20 @@
 </section>
 <script type="text/javascript">
 
-    // INIT TELEGRAM BUTTON
+    // INIT TELEGRAM WEB APP
     Telegram.WebApp.ready();
+
+    function sendData(b) {
+        if (b = true) {
+            Telegram.WebApp.sendData(JSON.stringify(data));
+            Telegram.WebApp.close();
+        } else {
+            Telegram.WebApp.sendData("Canceled");
+            Telegram.WebApp.close();
+}
+
+    }
+
     // TELEGRAM BUTTON
     Telegram.WebApp.MainButton.setText('TELEGRAM BUTTON').show().onClick(function () {
 
@@ -131,8 +143,7 @@
         data.btn = "TELEGRAM";
         console.log(data);
 
-        Telegram.WebApp.sendData(JSON.stringify(data));
-        Telegram.WebApp.close();
+        Telegram.WebApp.showConfirm("[TELEGRAM] Are U sure?", sendData)
     });
 
     // INIT HTML BUTTON
@@ -148,8 +159,7 @@
         data.btn = "HTML";
         console.log(data);
 
-        Telegram.WebApp.sendData(JSON.stringify(data));
-        Telegram.WebApp.close();
+        Telegram.WebApp.showConfirm("[HTML] Are U sure?", sendData)
     }
 
 </script>
