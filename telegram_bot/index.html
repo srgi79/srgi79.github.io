@@ -104,7 +104,7 @@
 
     <hr>
 
-    <h3>Send Message Function</h3>
+    <h3>Telegram Bot WebApp</h3>
     <form>
         <label for="Field1"></label>
         <input id="Field1" type="text" placeholder="Field1">
@@ -116,23 +116,27 @@
     </form>
 
     <hr>
-
-    <h4>Output</h4>
-    <pre><code id="div-code-output"></code></pre>
 </section>
 <script type="text/javascript">
+
+    f1 = document.getElementById("Field1").value;
+    f2 = document.getElementById("Field1").value;
     
     Telegram.WebApp.ready();
     Telegram.WebApp.MainButton.setText('Choose Color').show();
+    Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
+        console.log(f1);
+        console.log(f2);
+        Telegram.WebApp.sendData("TELEGRAM BUTTON");
+        Telegram.WebApp.close();
+    });
 
     document.getElementById("setBtn").onclick = function() {btnFunc()};
 
     function btnFunc() {
-        f1 = document.getElementById("Field1").value;
-        f2 = document.getElementById("Field1").value;
         console.log(f1);
         console.log(f2);
-        Telegram.WebApp.sendData("HELLOOOOOO");
+        Telegram.WebApp.sendData("HTML BUTTON");
         Telegram.WebApp.close();
     }
 
