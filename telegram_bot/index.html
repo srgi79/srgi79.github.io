@@ -112,7 +112,7 @@
         <label for="Field2"></label>
         <input id="Field2" type="text" placeholder="Field2">
 
-        <button type="button" id=setBtn>Set</button>
+        <button type="button" id=setBtn>HTML BUTTON</button>
     </form>
 
     <hr>
@@ -123,8 +123,7 @@
     f2 = document.getElementById("Field1").value;
     
     Telegram.WebApp.ready();
-    Telegram.WebApp.MainButton.setText('Choose Color').show();
-    Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
+    Telegram.WebApp.MainButton.setText('TELEGRAM BUTTON').show().onClick(function () {
         console.log(f1);
         console.log(f2);
         Telegram.WebApp.sendData("TELEGRAM BUTTON");
