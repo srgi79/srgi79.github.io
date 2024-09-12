@@ -134,7 +134,7 @@
             Telegram.WebApp.sendData(JSON.stringify(data));
             Telegram.WebApp.close();
         } else {
-            Telegram.WebApp.sendData("Canceled");
+            Telegram.WebApp.sendData(JSON.stringify({}));
             Telegram.WebApp.close();
         }
     }
@@ -150,7 +150,7 @@
         data.btn = "TELEGRAM";
         console.log(data);
 
-        Telegram.WebApp.showConfirm("[TELEGRAM] Are U sure?", sendData)
+        Telegram.WebApp.showConfirm("[TELEGRAM] Are U sure?", sendData(b))
     });
 
     // INIT HTML BUTTON
@@ -166,8 +166,12 @@
         data.btn = "HTML";
         console.log(data);
 
-        Telegram.WebApp.showConfirm("[HTML] Are U sure?", sendData)
+        Telegram.WebApp.showConfirm("[HTML] Are U sure?", sendData(b))
     }
 
 </script>
 </body>
+
+<script type="text/javascript">
+    Telegram.WebApp.expand();
+</script>
